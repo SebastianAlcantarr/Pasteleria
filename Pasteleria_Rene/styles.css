@@ -476,6 +476,47 @@ nav {
 
 
 
+/* Media Queries para móviles y tablets */
+@media (max-width: 768px) {
+    .product-grid {
+        gap: 20px;
+        padding: 0 15px;
+    }
+    .product-card img {
+        height: 180px;
+    }
+    .products h2 {
+        font-size: 2.2rem;
+    }
+    .product-card h3 {
+        font-size: 1.4rem;
+    }
+    .price {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .product-grid {
+        gap: 15px;
+        padding: 0 10px;
+        grid-template-columns: 2fr; /* 1 columna en celulares */
+    }
+    .product-card img {
+        height: 150px;
+    }
+    .products h2 {
+        font-size: 2rem;
+    }
+    .product-card h3 {
+        font-size: 1.2rem;
+    }
+    .price {
+        font-size: 1.5rem;
+    }
+}
+
+
 
 
 
@@ -504,17 +545,25 @@ nav {
 }
 
 .about-content {
-    max-width: 800px;
+    max-width:112rem;
     margin: 0 auto;
     font-size: 1.5rem;
 }
 
 .features {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    gap: 10px;
     margin-top: 50px;
 }
+
+/* Media query para móviles */
+@media (max-width: 600px) {
+    .features {
+        grid-template-columns: repeat(auto-fit, minmax(11.7rem, 1fr));
+    }
+}
+
 
 .feature {
     padding: 30px 20px;
@@ -538,6 +587,11 @@ nav {
     color: var(--dark);
     margin-bottom: 10px;
 }
+
+
+
+
+
 
 /* Contact Section */
 .contact {
@@ -604,14 +658,14 @@ nav {
     width: 40px;
     height: 40px;
     background: var(--light-gray);
-    border-radius: 50%;
+    border-radius: 100%;
     color: var(--dark);
     transition: all 0.3s ease;
 }
 
 .social-links a:hover {
-    background: var(--primary);
-    color: white;
+    background: rgb(230, 226, 226)    ;
+    color: rgb(100, 21, 21);
     transform: translateY(-3px);
 }
 
@@ -691,7 +745,7 @@ footer {
 }
 
 .footer-section a:hover {
-    color:#cddad4;
+    color:gray  ;
 }
 
 
@@ -712,7 +766,7 @@ footer {
 
 .newsletter-form button {
     background: var(--primary);
-    color: white;
+    color: rgb(238, 238, 238);
     border: none;
     padding: 0 15px;
     border-radius: 0 5px 5px 0;
@@ -721,7 +775,7 @@ footer {
 }
 
 .newsletter-form button:hover {
-    background: var(--accent);
+    background: gray    ;
 }
 
 .footer-bottom {
@@ -729,9 +783,15 @@ footer {
     padding: 20px 0;
     margin-top: 40px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    font-size: 2rem;
+    font-size: 1rem;
     color: #eee7e7;
 }
+
+
+
+
+
+
 
 /* Responsive Design */
 @media screen and (max-width: 1024px) {
@@ -780,6 +840,9 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+
+
+
 
 /* Responsive Styles */
 @media screen and (max-width: 992px) {
