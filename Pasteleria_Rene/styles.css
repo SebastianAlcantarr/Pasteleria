@@ -297,104 +297,115 @@ nav {
 }
 
 
-
 /* Hero Section */
 .hero {
-    min-height: 100vh;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.322) 50%, rgba(255, 255, 255, 0.329) 100%);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 100px 20px 60px;
-    position: relative;
-    margin-top: 80px;
-    box-shadow: inset 0 -10px 30px rgba(0, 0, 0, 0.05);
+  position:relative;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  overflow: hidden;
+  padding: 100px 20px 60px;
+  margin-top: 80px;
+  box-shadow: inset 0 -10px 30px rgba(0, 0, 0, 0.05);
 }
 
-.hero-content {
-    background-color: rgb(255, 255, 255);
-    padding: 3.5rem 2.5rem;
-    border-radius: var(--border-radius);
-    max-width: 900px;
-    width: 90%;
-    margin: 0 auto;
-    color: var(--text);
-    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgb(197, 136, 136);
-    transition: var(--transition);
-    transform: translateY(20px);
+/* Carrusel detrás */
+.carousel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.carousel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    animation: slide 18s infinite;
     opacity: 0;
-    animation: fadeInUp 0.8s ease-out 0.3s forwards;
+  }
+  
+  .carousel img:nth-child(1) { animation-delay: 0s; }
+  .carousel img:nth-child(2) { animation-delay: 6s; }
+  .carousel img:nth-child(3) { animation-delay:12s; }
+  
+  @keyframes slide {
+    0%, 20% { opacity: 0; }
+    20%, 45% { opacity: 1; }  /* visible */
+    40%, 65% { opacity: 0; }  /* se desvanece mientras la siguiente aparece */
+    65%, 100% { opacity: 0; }
+  }
+  
+  
+
+/* Caja de texto encima */
+.hero-content {
+  background-color: rgba(252, 252, 252, 0.85); /* blanco translúcido */
+  padding: 3.5rem 2.5rem;
+  border-radius: 10px;
+  max-width: 900px;
+  width: 90%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2; /* siempre encima */
+  color: var(--text);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.08);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgb(197, 136, 136);
+  animation: fadeInUp 0.8s ease-out 0.3s forwards;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: var(--transition);
+  text-align: center;
 }
 
 .hero-content:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
 }
 
+/* Texto */
 .hero h1 {
-    color: var(--dark);
-    margin-bottom: 20px;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--dark);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.5px;
+  text-shadow: 1px 1px 3px rgba(206, 171, 171, 0.1);
 }
 
 .hero p {
-    color: var(--text);
-    margin-bottom: 30px;
+  font-size: 1.2rem;
+  margin: 0 auto 2.5rem;
+  color: var(--text);
+  max-width: 700px;
+  line-height: 1.7;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+  font-weight: 400;
 }
 
-.hero img {
-    display: none; /* Hide the img tag since we're using it as background */
-}
-
-.hero-content {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.hero h1 {
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-    color: var(--dark);
-    font-weight: 600;
-    line-height: 1.1;
-    letter-spacing: -0.5px;
-    text-shadow: 1px 1px 3px rgba(206, 171, 171, 0.1);
+/* Responsive */
+@media (min-width: 768px) {
+  .hero h1 { font-size: 2.2rem; }
+  .hero p { font-size: 1.4rem; }
 }
 
 @media (min-width: 992px) {
-    .hero h1 {
-        font-size: 3rem;
-        margin-bottom: 2rem;
-    }
+  .hero h1 { font-size: 3rem; }
+  .hero p { font-size: 1.6rem; }
 }
 
-.hero p {
-    font-size: 1.2rem;
-    margin: 0 auto 2.5rem;
-    color: var(--text);
-    max-width: 700px;
-    line-height: 1.7;
-    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
-    font-weight: 400;
-}
 
-@media (min-width: 768px) {
-    .hero p {
-        font-size: 1.4rem;
-    }
-}
 
-@media (min-width: 768px) {
-    .hero p {
-        font-size: 1.6rem;
-    }
-}
+
 
 /* Products Section */
 .products {
